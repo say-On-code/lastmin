@@ -1,0 +1,31 @@
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.(dutch national flag algo)
+
+->
+brute-find 0 1 2 and insert in seperate array
+optimized-
+class Solution {
+    public void sortColors(int[] a) {
+        int left=0,right=a.length-1,mid=0;
+        int left2=0,right2=a.length-1,mid2=0;
+        while(mid<=right)
+        {
+            if(a[mid]==0)
+            {
+                int temp=a[mid];
+                a[mid]=a[left];
+                a[left]=temp;
+                left++;
+                mid++;
+            }
+            else if(a[mid]==2)
+            {
+                int temp=a[mid];
+                a[mid]=a[right];
+                a[right]=temp;
+                right--;
+            }
+            else
+            mid++;
+        }
+    }
+}
