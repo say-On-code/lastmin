@@ -1,0 +1,21 @@
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.(single stock)
+
+->
+class Solution {
+    public int maxProfit(int[] prices) {
+        int c=0,s=0,max=Integer.MIN_VALUE;
+        int maxr[]=new int[prices.length];
+        maxr[prices.length-1]=prices[prices.length-1];
+        for(int i=prices.length-2;i>=0;i--)
+        {
+            maxr[i]=(int)Math.max(maxr[i+1],prices[i]);
+        }
+        for(int i=0;i<prices.length;i++)
+        {
+            int diff=maxr[i]-prices[i];
+            if(diff>max)
+                max=diff;
+        }
+        return max;
+    }
+}
