@@ -1,0 +1,40 @@
+cycle in linklist
+1)detect
+2)return node
+
+1)public boolean hasCycle(ListNode head) {
+        ListNode fast=head;
+        ListNode slow=head;
+        while(fast!=null&&fast.next!=null)
+        {
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow)
+            {
+                return true;
+            }
+        }
+            return false;
+    }
+
+2)public ListNode detectCycle(ListNode head) {
+        ListNode fast=head;
+        ListNode slow=head;
+        int c=0;
+        while(fast!=null&&fast.next!=null)
+        {
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow)
+            {
+               fast=head;
+                while(fast!=slow)
+                {
+                    fast=fast.next;
+                    slow=slow.next;
+                }
+                return fast;
+            }
+        }
+        return null;
+    }
